@@ -1,6 +1,6 @@
-name: mjs-latest
-author: mongoose-os
-description: An empty app that does nothing
+name: BirdIOTy
+author: Nuno Sousa
+description: A IOT device to control many aspects of a bird life (water, sleep, ...) :D
 version: 1.0
 
 libs_version: ${mos.version}
@@ -23,11 +23,19 @@ filesystem:
 # Below is a custom firmware configuration example.
 # Uncomment and modify according to your needs:
 
-# config_schema:
-#  - ["my_app", "o", {title: "My app custom settings"}]
-#  - ["my_app.bool_value", "b", false, {title: "Some boolean value"}]
-#  - ["my_app.string_value", "s", "", {title: "Some string value"}]
-#  - ["my_app.int_value", "i", 123, {title: "Some integer value"}]
+#FUTURE
+
+config_schema:
+  #- ["rpc.mqtt.enable",false]
+  - ["mqtt.server","mqtt.thingspeak.com:1883"]
+  - ["mqtt.enable",true]
+  - ["wifi.ap.enable", false]
+  - ["wifi.sta.enable", true]
+  - ["wifi.sta.ssid", "Vodafone-XXXX"]
+  - ["wifi.sta.pass", "XXXXX"]
+#  - ["app", "s", {title: "BirdIOTy"}]
+#  - ["app.pinMic", "i", 0, {title: "GPIO pin where mic is attached to"}]
+#  - ["app.pinLed", "i", 2, {title: "GPIO pin where LED is attached to"}]
 
 # These settings get compiled into the C structure, and can be accessed
 # from the C code this way:
@@ -54,6 +62,8 @@ libs:
   - origin: https://github.com/mongoose-os-libs/rpc-service-fs
   - origin: https://github.com/mongoose-os-libs/rpc-uart
   - origin: https://github.com/mongoose-os-libs/wifi
+  - origin: https://github.com/mongoose-os-libs/mjs
+  - origin: https://github.com/mongoose-os-libs/mqtt
 
 # Used by the mos tool to catch mos binaries incompatible with this file format
 manifest_version: 2017-05-18
