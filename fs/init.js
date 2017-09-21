@@ -31,12 +31,18 @@ let sendTS = function(value) {
 // Blink built-in LED every second
 GPIO.set_mode(led, GPIO.MODE_OUTPUT);
 Timer.set(1000 /* 1 sec */, true /* repeat */, function() {
-  let value = GPIO.toggle(led);
+  let value = 0;
+  if(scream !== 0){
+    value = GPIO.toggle(led);
+  }else{
+    GPIO.write(led, 0);
+    GPIO
+  }
   print(value ? 'Tick' : 'Tock', 'uptime:', Sys.uptime(), getInfo());
 }, null);
 
 // Scream detected
-GPIO.set_button_handler(mic, GPIO.PULL_UP, GPIO.INT_LEVEL_HI, 300, function() {
+GPIO.set_button_handler(mic, GPIO.PULL_UP, GPIO.INT_LEVEL_HI, 200, function() {
   print('Screamed....oh well..... Actual number: ', scream);
   scream = scream + 1;
 }, null);
