@@ -11,6 +11,7 @@ let scream = 0;
 let mqtt_topic = "channels/254839/publish/fields/field1/XXXXX";
 
 
+//PROG
 
 print('LED GPIO:', led, 'MIC GPIO:', mic);
 
