@@ -8,7 +8,7 @@ load('api_mqtt.js');
 let led = 2;//Cfg.get('app.pin_led');
 let mic = 5;//Cfg.get('app.pin_mic');     D1
 let scream = 0;
-let mqtt_topic = "channels/XXXXXXXXXXXx/publish/fields/field1/XXXXXXXXXX";
+let mqtt_topic = "channels/254839/publish/fields/field1/XXXXX";
 
 
 
@@ -23,7 +23,7 @@ let getInfo = function() {
 
 let sendTS = function(value) {
   let msg = JSON.stringify(scream);
-  //QoS = 0 and retain = 0 acordantly to https://www.mathworks.com/help/thingspeak/publishtoachannelfieldfeed.html
+  //QoS = 0 and retain = 0 in https://www.mathworks.com/help/thingspeak/publishtoachannelfieldfeed.html
   let res = MQTT.pub(mqtt_topic, msg, 0, false);
   print('Published:', res ? 'yes' : 'no');
 };
@@ -35,8 +35,7 @@ Timer.set(1000 /* 1 sec */, true /* repeat */, function() {
   if(scream !== 0){
     value = GPIO.toggle(led);
   }else{
-    GPIO.write(led, 0);
-    GPIO
+    GPIO.write(led, 1);
   }
   print(value ? 'Tick' : 'Tock', 'uptime:', Sys.uptime(), getInfo());
 }, null);

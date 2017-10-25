@@ -31,8 +31,6 @@ config_schema:
   - ["mqtt.enable",true]
   - ["wifi.ap.enable", false]
   - ["wifi.sta.enable", true]
-  - ["wifi.sta.ssid", "Vodafone-XXXX"]
-  - ["wifi.sta.pass", "XXXXX"]
   - ["debug.level", 3]
 #  - ["app", "s", {title: "BirdIOTy"}]
 #  - ["app.pinMic", "i", 0, {title: "GPIO pin where mic is attached to"}]
