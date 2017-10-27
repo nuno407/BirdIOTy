@@ -31,7 +31,12 @@ config_schema:
   - ["mqtt.enable",true]
   - ["wifi.ap.enable", false]
   - ["wifi.sta.enable", true]
+  - ["wifi.sta.ssid", "XXXXX"]
+  - ["wifi.sta.pass", "XXXX"]
   - ["debug.level", 3]
+  - ["blynk.enable", true]
+  - ["blynk.server", "blynk-cloud.com:8442"]
+  - ["blynk.auth", "XXXX"]
 #  - ["app", "s", {title: "BirdIOTy"}]
 #  - ["app.pinMic", "i", 0, {title: "GPIO pin where mic is attached to"}]
 #  - ["app.pinLed", "i", 2, {title: "GPIO pin where LED is attached to"}]
@@ -66,6 +71,8 @@ libs:
   - origin: https://github.com/mongoose-os-libs/http-server
   - origin: https://github.com/mongoose-os-libs/ota-http-client
   - origin: https://github.com/mongoose-os-libs/rpc-service-ota
+  - origin: https://github.com/mongoose-os-libs/blynk
+  - origin: https://github.com/mongoose-os-libs/pwm
   #- origin: https://github.com/mongoose-os-libs/dash
   #- origin: https://github.com/mongoose-os-libs/rpc-loopback
 # Used by the mos tool to catch mos binaries incompatible with this file format
